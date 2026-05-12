@@ -1,35 +1,35 @@
-#include<iostream>
-using namespace std;
+class Solution:
 
-class Solution{
-    public:
-    int maxSubarraySum(vector<int>& arr, int k){
-        int i=0;
-        int j=0;
-        int curr_sum=0;
-        int max_sum= INT_MIN;
-        int n= arr.size();
-        while(j<n){
-            curr_sum = curr_sum +arr[j];
-            if(j-i+1<k)
-            {
-                j++;
-            }
-            else if(j-i+1 == k)
-            {
-                max_sum = max(max_sum,curr_sum);
-                curr_sum= curr_sum - arr[i];
-                i++;
-                j++;
-            }
-            return max_sum;
-        }
-    }
-}
+    def maxSubarraySum(self, arr, k):
 
-cout<<Solution().maxSub
-    
+        i = 0
+        j = 0
 
-    
-    
-    
+        curr_sum = 0
+        max_sum = float('-inf')
+
+        n = len(arr)
+
+        while j < n:
+
+            curr_sum = curr_sum + arr[j]
+
+            if (j - i + 1) < k:
+
+                j += 1
+
+            elif (j - i + 1) == k:
+
+                max_sum = max(max_sum, curr_sum)
+
+                curr_sum = curr_sum - arr[i]
+
+                i += 1
+                j += 1
+
+        return max_sum
+
+arr = [2, 5, 1, 8, 2, 9, 1]
+k = 3
+
+print(Solution().maxSubarraySum(arr, k))
