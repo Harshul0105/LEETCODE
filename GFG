@@ -1,3 +1,4 @@
+Question1. 
 class Solution:
 
     def maxSubarraySum(self, arr, k):
@@ -33,3 +34,27 @@ arr = [2, 5, 1, 8, 2, 9, 1]
 k = 3
 
 print(Solution().maxSubarraySum(arr, k))
+
+Question 2.
+
+#include<iostream>
+using namespace std;
+
+class Solution {
+    void solve(int n, int sum){
+        if(n==0){
+            return;
+        }
+        sum=0;
+        int rem= n%10;
+        sum=sum+rem;
+        solve(n/10, sum);
+    }
+  public:
+    int sumOfDigits(int n) {
+        int sum=0;
+        solve(n, sum);
+        return sum;
+    }
+};
+Solution().sumOfDigits(687);
