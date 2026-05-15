@@ -104,3 +104,34 @@ nums=[-1,0,3,5,9,12]
 target= 9
 print(Solution().search(nums, target))
 
+Question 3: Problem 20
+
+class Solution:
+
+    def isValid(self, s):
+
+        st = []
+
+        for ch in s:
+
+            if ch == '(' or ch == '{' or ch == '[':
+
+                st.append(ch)
+
+            else:
+
+                if len(st) == 0:
+                    return False
+
+                top = st.pop()
+
+                if ((ch == ')' and top == '(') or
+                    (ch == '}' and top == '{') or
+                    (ch == ']' and top == '[')):
+
+                    continue
+
+                else:
+                    return False
+
+        return len(st) == 0
