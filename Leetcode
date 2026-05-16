@@ -135,3 +135,30 @@ class Solution:
                     return False
 
         return len(st) == 0
+
+Question 4: Problem 144
+class Solution:
+
+    def solve(self, root, arr):
+
+        # Base case
+        if root is None:
+            return
+
+        # Traverse left subtree
+        self.solve(root.left, arr)
+
+        # Visit root node
+        arr.append(root.val)
+
+        # Traverse right subtree
+        self.solve(root.right, arr)
+
+
+    def inorderTraversal(self, root):
+
+        arr = []
+
+        self.solve(root, arr)
+
+        return arr
