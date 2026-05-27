@@ -37,26 +37,26 @@ print(Solution().maxSubarraySum(arr, k))
 
 Question 2.
 
-#include<iostream>
-using namespace std;
+class Solution:
 
-class Solution {
-    void solve(int n, int sum){
-        if(n==0){
-            return;
-        }
-        sum=0;
-        int rem= n%10;
-        sum=sum+rem;
-        solve(n/10, sum);
-    }
-  public:
-    int sumOfDigits(int n) {
-        int sum=0;
-        solve(n, sum);
-        return sum;
-    }
-};
+    def solve(self, n):
+
+        # Base case
+        if n == 0:
+            return 0
+
+        rem = n % 10
+
+        return rem + self.solve(n // 10)
+
+
+    def sumOfDigits(self, n):
+
+        return self.solve(n)
+
+
+# Example
+print(Solution().sumOfDigits(687))
 
 Question 3: Factorial
 
