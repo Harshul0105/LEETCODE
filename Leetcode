@@ -1,6 +1,10 @@
 Question 1:Problem 34
+from typing import List
+
 class Solution:
+
     def lowerBound(self, nums, target):
+
         s = 0
         e = len(nums) - 1
         ans = -1
@@ -23,6 +27,7 @@ class Solution:
                 e = mid - 1
 
         return ans
+
 
     def upperBound(self, nums, target):
 
@@ -49,34 +54,19 @@ class Solution:
 
         return ans
 
+
     def searchRange(self, nums: List[int], target: int) -> List[int]:
+
         first = self.lowerBound(nums, target)
         last = self.upperBound(nums, target)
 
         return [first, last]
 
+
 nums = [5,7,7,8,8,10]
 target = 8
 
-print(Solution().searchRange(nums, target))  
-
-    int upperbound(vector<int>& nums,int target){
-    int s=0, e=n-1, ans=-1;
-    while(s<=e){
-        int mid=(s+e)/2;
-        if(nums[mid]== target){
-            ans=mid;
-            s=mid+1;
-            }
-        else if(nums[mid]>target){
-            e= mid-1;
-        } 
-        else{
-            s= mid+1;
-            }
-        return ans;
-        }
-    }
+print(Solution().searchRange(nums, target))
 
 Question 2: Problem 704
 
@@ -112,26 +102,27 @@ class Solution:
 
         st = []
 
+        mapping = {
+            ')': '(',
+            '}': '{',
+            ']': '['
+        }
+
         for ch in s:
 
-            if ch == '(' or ch == '{' or ch == '[':
-
+            # Opening brackets
+            if ch in "({[":
                 st.append(ch)
 
+            # Closing brackets
             else:
 
-                if len(st) == 0:
+                if not st:
                     return False
 
                 top = st.pop()
 
-                if ((ch == ')' and top == '(') or
-                    (ch == '}' and top == '{') or
-                    (ch == ']' and top == '[')):
-
-                    continue
-
-                else:
+                if mapping[ch] != top:
                     return False
 
         return len(st) == 0
@@ -141,14 +132,14 @@ class Solution:
 
     def solve(self, root, arr):
 
-        # Base case
+        # Base condition
         if root is None:
             return
 
         # Traverse left subtree
         self.solve(root.left, arr)
 
-        # Visit root node
+        # Visit current node
         arr.append(root.val)
 
         # Traverse right subtree
