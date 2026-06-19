@@ -254,3 +254,16 @@ class NumArray
         return prefixSum[right+1] - prefixSum[left];
     }
 }; 
+
+Question 10: Problem 1344
+
+class Solution 
+{   public:
+    double angleClock(int hour, int minutes) 
+    {
+        double hourHand = (hour % 12)* (360.0/12) + minutes*(360.0/(12*60));
+        double minuteHand = minutes * 360.0/60;
+        double diff = abs(hourHand - minuteHand);
+        return min(diff, 360.0 - diff);
+    }
+};
