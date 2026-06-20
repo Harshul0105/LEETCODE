@@ -332,3 +332,17 @@ class Solution
     }
 };
 
+Question 13: Problem 455
+
+class Solution {   public:
+    int findContentChildren(vector<int>& g, vector<int>& s) {
+        sort(g.begin(), g.end() );
+        sort(s.begin(), s.end() );
+        int gid= 0, sid=0; 
+        while(sid<s.size() && gid<g.size() ){
+            if(s[sid] >= g[gid]) gid++;
+            sid++;
+        }
+        return gid;
+    }
+};
