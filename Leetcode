@@ -462,7 +462,7 @@ public:
     }
 };
 
-Quezstion: Problem 2461
+Question: Problem 2461
 class Solution {
 public:
     long long maximumSubarraySum(vector<int>& nums, int k) 
