@@ -570,3 +570,44 @@ public:
         return ans;
     }//end of vector
 };//end of code
+
+Question 22: Problem 682
+class Solution {
+public:
+    int calPoints(vector<string>& operations)
+    {
+        stack<int> marksStack;
+        for( string op : operations)
+        {
+            if(op == "C")
+            {
+                marksStack.pop();
+            }//end of if block 
+            else if(op == "D")
+            {
+                marksStack.push(2 * marksStack.top());
+            }//end of else if block
+            else if(op == "+")
+            {
+                int topScore = marksStack.top();
+                marksStack.pop();
+                int secondTopScore = marksStack.top();
+                int sum = topScore + secondTopScore;
+                marksStack.push(topScore);
+                marksStack.push(sum);
+            }//end of else if
+            else
+            {
+                int n = stoi(op);
+                marksStack.push(n);
+            }
+        }// end of for func
+        int total = 0;
+        while(!marksStack.empty())
+        {
+            total = total + marksStack.top();
+            marksStack.pop();
+        }//end of while loop
+        return total;
+    }//end of calPoints()
+};
