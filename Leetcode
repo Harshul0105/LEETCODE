@@ -611,3 +611,17 @@ public:
         return total;
     }//end of calPoints()
 };
+
+Question 23: Problem 1464
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) 
+    {
+        priority_queue<int> pq(nums.begin(),nums.end());
+        int x = pq.top();
+        pq.pop();
+        int y = pq.top();
+        int res = (x-1) *(y-1);
+        return res;
+    }
+};
