@@ -675,3 +675,41 @@ public:
         return pq.empty() ? 0 : pq.top();
     }//end of lastStoneWeight Function
 };
+
+Question : Problem 26
+class Solution 
+{
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) 
+    {
+       unordered_map<int,int> freqtable; 
+       //step:count frequency
+       for(int n:nums)
+       {
+        freqtable[n]=freqtable[n]+1;
+
+       }///end of for loop
+       //step-2 use of min heap
+       priority_queue<pair<int,int>,
+       vector<pair<int,int>>,greater<pair<int,int>> > minHeap;
+       for(auto&[n,freq] : freqtable)
+       {
+        minHeap.push({freq,n});
+       if(minHeap.size()>k)
+       {
+        minHeap.pop();
+       }
+
+       }//end of for loop
+       //step-3 extract elements from the heap into the final answer
+       vector<int>answer;
+       while(!minHeap.empty())
+       {
+        answer.push_back(minHeap.top().second);
+        minHeap.pop();
+
+       }//end of while loop
+       return answer;
+
+    }//end of freqtable
+};
