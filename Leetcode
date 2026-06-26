@@ -676,7 +676,7 @@ public:
     }//end of lastStoneWeight Function
 };
 
-Question : Problem 26
+Question 26 : Problem 26
 class Solution 
 {
 public:
@@ -712,4 +712,30 @@ public:
        return answer;
 
     }//end of freqtable
+};
+
+Question 27: Problem 1189
+
+class Solution 
+{   public:
+    int maxNumberOfBalloons(string text) 
+    {
+        vector<int> historyCount(26, 0);
+
+        for(char ch : text)
+        {   historyCount[ch-'a']++;
+        }
+
+        int answer = INT_MAX;
+        for(char ch : string("ban") )
+        {   answer = min(answer, historyCount[ch-'a'] );
+        }
+
+        for(char ch : string("lo") )
+        {   answer = min(answer, historyCount[ch-'a'] / 2 );
+        }
+
+        return answer;
+        
+    }
 };
