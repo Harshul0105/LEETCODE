@@ -912,3 +912,19 @@ public:
     }
 };
 };
+
+Question 34 Problem 1299
+class Solution {
+public:
+    vector<int> replaceElements(vector<int>& arr) {
+        int max_i = -1;
+
+        for (int i = arr.size() - 1; i >= 0; i--) {
+            int curr = arr[i];
+            arr[i] = max_i;
+            max_i = max(max_i, curr);
+        }
+
+        return arr;
+    }
+};
