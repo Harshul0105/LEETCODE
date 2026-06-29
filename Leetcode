@@ -953,3 +953,20 @@ public:
         return ans;
     }
 };
+
+Question 36: Problem 1846
+
+class Solution {
+public:
+    int maximumElementAfterDecrementingAndRearranging(vector<int>& arr) {
+        sort(arr.begin(), arr.end() );
+        arr[0] =1;
+        //geedily adjust rach element
+        //to be at most previous + 1
+        for(int pos = 1; pos < arr.size(); pos++)
+        {
+            arr[pos] =min(arr[pos],arr[pos - 1] + 1 );
+        }
+        return arr.back();
+    }
+};
