@@ -1031,3 +1031,44 @@ public:
         return ans;
     }
 };
+
+Question 39 : Problem 67
+
+class Solution 
+{
+    public:
+        string addBinary(string a, string b) 
+        {
+            string BitSum = "";
+
+            int stringAIndex = a.length() -1;
+            int stringBIndex = b.length() -1;
+            int currentCarry = 0;
+
+            while(stringAIndex >= 0 || stringBIndex >= 0 || currentCarry > 0)
+            {
+                int currectColumnSum = currentCarry;
+
+                if(stringAIndex >= 0)
+                {
+                    currectColumnSum += a[stringAIndex] - '0';
+                    stringAIndex--;
+                }//end of if block
+
+                if(stringBIndex >=0)
+                {
+                    currectColumnSum += b[stringBIndex] - '0';
+                    stringBIndex--;
+                }//end of if block
+
+                int calculatedBit = currectColumnSum % 2;
+                BitSum += to_string(calculatedBit);
+                currentCarry = currectColumnSum / 2;
+
+            }//end of while loop
+            reverse(BitSum.begin(), BitSum.end());
+            
+            return BitSum;
+
+        }// end of addBinary
+};
