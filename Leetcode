@@ -1149,7 +1149,7 @@ public:
     }
 };
 
-Question 47: Problem 21
+Question 45: Problem 21
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
@@ -1176,7 +1176,7 @@ public:
     }
 };
 
-Question 48: Problem 23
+Question 46: Problem 23
 class Solution {
 public:
     struct cmp {
@@ -1211,7 +1211,7 @@ public:
     }
 };
 
-Question 49: Problem 2570
+Question 47: Problem 2570
 class Solution {
 public:
     vector<vector<int>> mergeArrays(vector<vector<int>>& nums1, vector<vector<int>>& nums2) {
