@@ -1121,7 +1121,7 @@ public:
     }
 };
 
-Question 44: Problem 338
+Question 43: Problem 338
 class Solution {
 public:
     vector<int> countBits(int n) {
