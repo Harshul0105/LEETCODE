@@ -1244,7 +1244,7 @@ public:
     }
 };
 
-Question 48: Problem 2363
+Questionfo8: Problem 2363
 class Solution {
 public:
     vector<vector<int>> mergeSimilarItems(vector<vector<int>>& items1,
