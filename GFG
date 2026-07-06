@@ -55,7 +55,6 @@ class Solution:
         return self.solve(n)
 
 
-# Example
 print(Solution().sumOfDigits(687))
 
 Question 3: Factorial
