@@ -5,7 +5,7 @@ class Solution:
 
     def lowerBound(self, nums, target):
 
-        s = 00
+        s = 0
         e = len(nums) - 1
         ans = -1
 
